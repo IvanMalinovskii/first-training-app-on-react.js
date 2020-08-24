@@ -2,13 +2,14 @@ import React from 'react';
 import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
 import Header from './header-components/Header.js'; 
 import Main from './main-components/Main.js';
+import NotesPage from './main-components/notes-page/NotesPage.js';
 
 let links = [
   {
       id: 1,
       to: '',
       text: 'Home',
-      component: <div>First</div>
+      component: <NotesPage />
   },
   {
       id: 2,
