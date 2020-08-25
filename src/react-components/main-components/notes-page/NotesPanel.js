@@ -1,23 +1,24 @@
 import React, {useContext} from 'react';
-import NotesPage from './NotesPage';
+import NoteCreation from './NoteCreation.js';
 import './notes-page.css';
 import SmallNote from './SmallNote.js';
-// import notepageContext from '../notepageContext/notepageContext.js';
+import NotesContext from '../notesState/NotesContext';
 
-const NotesPanel = () => {
-    // const {clear, create} = useContext(notepageContext);
+const NotesPanel = ({setter}) => {
+    const {notes, removeNote} = useContext(NotesContext);
 
+    const createButtonHandler = () => {
+        setter(<NoteCreation />);
+    };
 
     return(
         <div className="panel">
             <div className="panel__header">
                 <h2 className='panel__title'>notes list</h2>
-                <button className='panel__button'>+</button>
+                <button className='panel__button' onClick={createButtonHandler}>+</button>
             </div>
             <div className='notes__smalls'>
-                <SmallNote classList={['notes__note']} text="small 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 textsmall 1 text" />
-                <SmallNote classList={['notes__note']} text="small 2 text" />
-                <SmallNote classList={['notes__note']} text="small 3 text" />
+                {notes.map(note => <SmallNote removeNote={removeNote} id={note.key} classList={['notes__note']} {...note} setter={setter}/>)}
             </div>
         </div>
     );

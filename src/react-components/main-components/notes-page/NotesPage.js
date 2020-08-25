@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
-import SmallNote from './SmallNote.js';
 import './notes-page.css';
 import NotesPanel from './NotesPanel.js';
 import NotesArea from './NotesArea.js';
 import EmptyNote from './EmptyNote.js';
-// import NotepageState from '../notepageContext/NotepageState.js';
+import NotesState from '../notesState/NotesState';
+import NoteCreation from './NoteCreation';
 
-
-const DB_URL = 'https://notes-react-training.firebaseio.com/';
+//const DB_URL = 'https://notes-react-training.firebaseio.com/';
 
 const NotesPage = () => {
-    const [component, setComponent] = useState(<EmptyNote/>)
-
+    const [component, setComponent] = useState(<NoteCreation/>)
 
     return (
-      <div className='notes-page'>
-          <NotesPanel />
+      <NotesState>
+          <div className='notes-page'>
+          <NotesPanel setter={setComponent} />
           <NotesArea component={component} />
-      </div>
+        </div>
+      </NotesState>
     )
 };
 

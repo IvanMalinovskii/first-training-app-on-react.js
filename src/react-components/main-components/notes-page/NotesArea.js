@@ -1,13 +1,11 @@
-import React, {useContext} from 'react';
-// import notepageContext from '../notepageContext/notepageContext.js';
-import NoteCreation from './NoteCreation.js';
+import React from 'react';
+import EmptyNote from './EmptyNote';
 
 const NotesArea = ({component}) => {
-    // const {fragment} = useContext(notepageContext);
+    const renderComponent = component ? component : <EmptyNote />;
     return (
         <div className='notes__area'>
-            {/* <NoteCreation /> */}
-            {component}
+            {renderComponent}
         </div>
     );
 };
