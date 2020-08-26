@@ -20,10 +20,21 @@ const NotesState = ({children}) => {
                 key
             }
         });
+    };
+
+    const addNote = (key, title, text) => {
+        dispatcher({
+            type: 'ADD_NOTE',
+            payload: {
+                key,
+                title,
+                text
+            }
+        });
     }
 
     return (
-        <NotesContext.Provider value={{notes: state.notes, removeNote}}>
+        <NotesContext.Provider value={{notes: state.notes, removeNote, addNote}}>
             {children}
         </NotesContext.Provider>
     );

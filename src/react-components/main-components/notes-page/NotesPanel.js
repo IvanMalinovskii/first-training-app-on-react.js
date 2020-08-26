@@ -8,7 +8,7 @@ const NotesPanel = ({setter}) => {
     const {notes, removeNote} = useContext(NotesContext);
 
     const createButtonHandler = () => {
-        setter(<NoteCreation />);
+        setter(<NoteCreation setter={setter}/>);
     };
 
     return(

@@ -94,6 +94,9 @@
 .notes__area {
     flex: 1 1 auto;
     /* background-color: antiquewhite; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .note-creation {
     display: flex;
@@ -135,6 +138,7 @@
     text-transform: uppercase;
 }
 .note-creation {
+    width: 100%;
     padding: 3px 3px;
 }
 .note-creation__input {
@@ -167,4 +171,39 @@
 }
 .note-creation__button:hover {
     color: rgb(173, 173, 173);
+}
+.large-note {
+    height: 98%;
+    width: 98%;
+    border-radius: 5px;
+    /* background-color: rgb(255, 249, 195); */
+    background-color: #fff;
+    overflow-y: scroll;
+    padding: 5px 10px;
+    text-align: justify;
+}
+.large-note::-webkit-scrollbar {
+    appearance: none;
+    background-color: rgb(199, 199, 199);
+    width: 5px;
+    border-radius: 2.5px;
+}
+.large-note::-webkit-scrollbar-thumb {
+    background-color: rgb(104, 104, 104);
+    border-radius: 2.5px;
+}
+.large-note__title {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+}
+.large-note__title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 10%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.205);
 }
