@@ -1,17 +1,18 @@
 import React, {useState, useContext} from 'react';
 import NotesContext from '../notesState/NotesContext';
 import EmptyNote from './EmptyNote';
+import Note from './Note';
 
 const NoteCreation = ({title, text, setter}) => {
     const [noteTitle, setTitle] = useState(title || '');
     const [noteText, setText] = useState(text || '');
-    const {addNote} = useContext(NotesContext);
+    const {addNote, notes} = useContext(NotesContext);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
         if (noteText) {
-            addNote(5, noteTitle, noteText);
-            setter(<div>setter</div>);
+            addNote(noteTitle, noteText);
+            setter(<Note title={noteTitle} text={noteText} />);
         }
         else 
             console.log('empty text');

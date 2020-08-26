@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import NoteCreation from './NoteCreation.js';
 import './notes-page.css';
 import SmallNote from './SmallNote.js';
 import NotesContext from '../notesState/NotesContext';
 
 const NotesPanel = ({setter}) => {
-    const {notes, removeNote} = useContext(NotesContext);
+    const {notes, removeNote, getNotes} = useContext(NotesContext);
 
     const createButtonHandler = () => {
         setter(<NoteCreation setter={setter}/>);
